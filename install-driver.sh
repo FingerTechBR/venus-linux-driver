@@ -54,11 +54,21 @@ else
   cp -av ./99-Nitgen-VenusDrv.rules /etc/udev/rules.d
 fi
 
-if [ -f ./shared-object/VenusLib.so ]; then
-  cp ./shared-object/VenusLib.so /lib/
+arch=$(uname -m)
+if [ "$arch" = "i686" ] || [ "$arch" = "i386" ]; then
+  if [ -f ./shared-object/x86/VenusLib.so ]; then
+    cp ./shared-object/x86/VenusLib.so /lib/
+  else
+    echo "File VenusLib.so does not exist in the shared-object/x86 directory"
+  fi
 else
-  echo "File VenusLib.so does not exist in the current directory"
+  if [ -f ./shared-object/VenusLib.so ]; then
+    cp ./shared-object/VenusLib.so /lib/
+  else
+    echo "File VenusLib.so does not exist in the current directory"
+  fi
 fi
+
 
 if [ -f ./VenusDrv.conf ]; then
   cp ./VenusDrv.conf /etc/
