@@ -1400,7 +1400,7 @@ static int hfdu04_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
         {
             bulk_flag = 1; /* bulk write mode is set */
         }
-
+    break;
     case _IOC_NR(EZUSB_BULK_READ):
         if (dev->bcdDevice < 0x2000)
         {
