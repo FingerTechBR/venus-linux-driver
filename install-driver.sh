@@ -87,6 +87,12 @@ else
   fi
 fi
 
+if [ -f ./sdk/NBioBSP.lic ]; then
+  [ -f /usr/local/bin/NBioBSP.lic ] && echo "Overwriting license (NBioBSP.lic)"
+  cp -f ./sdk/NBioBSP.lic /lib/
+else
+  echo "File NBioBSP.lic does not exist in the current directory and was not copied"
+fi
 
 if [ -f ./VenusDrv.conf ]; then
   cp ./VenusDrv.conf /etc/
