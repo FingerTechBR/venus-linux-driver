@@ -69,6 +69,7 @@ if [ "$arch" = "i686" ] || [ "$arch" = "i386" ]; then
     done
   else
     echo "File VenusLib.so does not exist in the current directory and was not copied"
+    exit 1
   fi
 else
   if [ -f ./shared-object/VenusLib.so ]; then
@@ -84,6 +85,7 @@ else
     done
   else
     echo "File VenusLib.so does not exist in the current directory and was not copied"
+    exit 1
   fi
 fi
 
@@ -92,12 +94,14 @@ if [ -f ./sdk/NBioBSP.lic ]; then
   cp -f ./sdk/NBioBSP.lic /lib/
 else
   echo "File NBioBSP.lic does not exist in the current directory and was not copied"
+  exit 1
 fi
 
 if [ -f ./VenusDrv.conf ]; then
   cp ./VenusDrv.conf /etc/
 else
   echo "File VenusDrv.conf does not exist in the current directory and was not copied"
+  exit 1
 fi
 
 /sbin/insmod $DRIVER_PATH/VenusDrv.ko
