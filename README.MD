@@ -1,18 +1,17 @@
-# Venus Driver Kernel Binding Source (Hamster DX) for Linux
+# Venus Driver Kernel Binding Source (Hamster DX) para Linux
 
-Libraries for direct interaction (NBioBSP) are included with the license.
+Bibliotecas para interação direta (NBioBSP) estão incluídas com a licença.
 
-#### All rights and credits to Nitgen Co. Ltd. (http://www.nitgen.com)
+#### Todos os direitos e créditos à Nitgen Co. Ltd. (http://www.nitgen.com)
 
-## Installation
-
+## Instalação
 ### Prerequisites
-For Ubuntu or other apt-based distros, install:
+Para Ubuntu ou outras distribuições baseadas em apt, instale:
 ```bash
 sudo apt install build-essential linux-headers-$(uname -r)
 ```
-### Build and Install
-Use chmod to be able to execute the script if needed.
+### Compilar e Instalar
+Use chmod para habilitar a execução do script caso seja necessário.
 ```bash
 sudo make
 chmod +x install-driver.sh
