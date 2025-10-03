@@ -13,8 +13,10 @@ obj-m := $(TARGET).o
 default:
 	make -C $(KDIR) M=$(PWD) modules
 
+ifeq ($(shell [ $(shell uname -r | cut -d. -f1) -eq 6 ] && [ $(shell uname -r | cut -d. -f2) -lt 6 ] && echo yes),yes)
 $(TARGET).o: $(OBJS)
 	$(LD) $(LD_RFLAG) -r -o $@ $(OBJS)
+endif
 
 install:
 	su -c "cp -v $(TARGET).ko $(DEST) && /sbin/depmod -a"

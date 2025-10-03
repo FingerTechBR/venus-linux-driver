@@ -434,7 +434,7 @@ static int hfdu04_freebuffers(struct hfdu04_data *dev)
     return 0;
 }
 
-/* urb filling call back function for iso read  */
+/* usb filling call back function for iso read  */
 // #define EILSEQ          84      /* Illegal byte sequence */
 
 static void hfdu04_isocomplete(struct urb *purb, struct pt_regs *regs)
